@@ -1,0 +1,180 @@
+import { Metadata } from "next"
+import Link from "next/link"
+import { Phone, Clock, MapPin, Shield, Star, CheckCircle2, Car, Home, Building2, Lock } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+
+export const metadata: Metadata = {
+  title: "Anthem Locksmith | 24/7 Emergency Lock & Key Service | Alcatraz Lock",
+  description: "24/7 Emergency Locksmith in Anthem, AZ. Fast 25-35 minute response for car lockouts, house lockouts, lock rekeying, and key replacement. Licensed & Insured. Call (602) 677-5045",
+}
+
+const services = [
+  { icon: Car, title: "Automotive Locksmith", description: "Car lockouts, key replacement, fob programming, ignition repair" },
+  { icon: Home, title: "Residential Locksmith", description: "House lockouts, lock rekeying, smart lock installation, deadbolts" },
+  { icon: Building2, title: "Commercial Locksmith", description: "Business lockouts, master key systems, access control, panic bars" },
+  { icon: Lock, title: "Safe Services", description: "Safe cracking, combination changes, safe repair and moving" },
+]
+
+const neighborhoods = [
+  "Anthem", "Anthem Country Club", "Anthem Parkside", "Anthem West",
+  "Daisy Mountain", "Tramonto", "New River", "Desert Hills",
+  "Gavilan Peak", "Meridian", "Carefree Highway Area"
+]
+
+const reviews = [
+  { name: "Susan L.", rating: 5, text: "Locked out of my house in Anthem at night. They arrived fast and were very professional. Felt safe the whole time!", date: "5 days ago" },
+  { name: "Mike C.", rating: 5, text: "Needed smart locks installed at my new Anthem home. Great work, fair price, and explained everything clearly. Highly recommend!", date: "2 weeks ago" },
+  { name: "Janet R.", rating: 5, text: "Lost my car key fob at Anthem Community Park. They came out and programmed a new one on the spot. Excellent service!", date: "1 month ago" },
+]
+
+export default function AnthemPage() {
+  return (
+    <main className="min-h-screen bg-zinc-950">
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-b from-zinc-900 to-zinc-950 py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 rounded-full px-4 py-2 mb-6">
+              <MapPin className="w-4 h-4 text-amber-500" />
+              <span className="text-amber-500 text-sm font-medium">Serving Anthem, AZ</span>
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+              Anthem Locksmith
+            </h1>
+            <p className="text-xl text-zinc-400 mb-8 max-w-2xl mx-auto">
+              24/7 Emergency locksmith services throughout Anthem. Fast 25-35 minute response time. Licensed, bonded, and insured.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild size="lg" className="bg-amber-500 hover:bg-amber-600 text-zinc-900 font-semibold text-lg px-8">
+                <a href="tel:+16026775045">
+                  <Phone className="w-5 h-5 mr-2" />
+                  (602) 677-5045
+                </a>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="border-zinc-700 text-white hover:bg-zinc-800">
+                <Link href="/contact">Get Free Quote</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Badges */}
+      <section className="bg-zinc-900 border-y border-zinc-800 py-8">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div className="flex flex-col items-center">
+              <Clock className="w-8 h-8 text-amber-500 mb-2" />
+              <span className="text-white font-semibold">25-35 Min Response</span>
+              <span className="text-zinc-500 text-sm">In Anthem Area</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <Shield className="w-8 h-8 text-amber-500 mb-2" />
+              <span className="text-white font-semibold">Licensed & Insured</span>
+              <span className="text-zinc-500 text-sm">Fully Certified</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <Star className="w-8 h-8 text-amber-500 mb-2" />
+              <span className="text-white font-semibold">5-Star Rated</span>
+              <span className="text-zinc-500 text-sm">500+ Reviews</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <CheckCircle2 className="w-8 h-8 text-amber-500 mb-2" />
+              <span className="text-white font-semibold">Upfront Pricing</span>
+              <span className="text-zinc-500 text-sm">No Hidden Fees</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">
+            Locksmith Services in Anthem
+          </h2>
+          <p className="text-zinc-400 text-center mb-12 max-w-2xl mx-auto">
+            Complete locksmith solutions for automotive, residential, and commercial needs throughout Anthem.
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {services.map((service) => (
+              <Card key={service.title} className="bg-zinc-900 border-zinc-800 hover:border-amber-500/50 transition-colors">
+                <CardContent className="p-6 text-center">
+                  <service.icon className="w-12 h-12 text-amber-500 mx-auto mb-4" />
+                  <h3 className="text-xl font-semibold text-white mb-2">{service.title}</h3>
+                  <p className="text-zinc-400">{service.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Neighborhoods */}
+      <section className="bg-zinc-900 py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">
+            Anthem Neighborhoods We Serve
+          </h2>
+          <p className="text-zinc-400 text-center mb-12 max-w-2xl mx-auto">
+            Fast response times to all Anthem neighborhoods and surrounding areas.
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {neighborhoods.map((neighborhood) => (
+              <span key={neighborhood} className="bg-zinc-800 text-zinc-300 px-4 py-2 rounded-full text-sm">
+                {neighborhood}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Reviews */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">
+            What Anthem Customers Say
+          </h2>
+          <p className="text-zinc-400 text-center mb-12">Real reviews from real customers</p>
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {reviews.map((review, index) => (
+              <Card key={index} className="bg-zinc-900 border-zinc-800">
+                <CardContent className="p-6">
+                  <div className="flex gap-1 mb-3">
+                    {[...Array(review.rating)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 fill-amber-500 text-amber-500" />
+                    ))}
+                  </div>
+                  <p className="text-zinc-300 mb-4">{`"${review.text}"`}</p>
+                  <div className="flex justify-between items-center">
+                    <span className="text-white font-semibold">{review.name}</span>
+                    <span className="text-zinc-500 text-sm">{review.date}</span>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-amber-500 py-16">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-4">
+            Locked Out in Anthem?
+          </h2>
+          <p className="text-zinc-800 text-lg mb-8 max-w-2xl mx-auto">
+            {`Don't wait! Our Anthem locksmiths are available 24/7 and can be at your location in 25-35 minutes.`}
+          </p>
+          <Button asChild size="lg" className="bg-zinc-900 hover:bg-zinc-800 text-white font-semibold text-lg px-8">
+            <a href="tel:+16026775045">
+              <Phone className="w-5 h-5 mr-2" />
+              Call Now: (602) 677-5045
+            </a>
+          </Button>
+        </div>
+      </section>
+    </main>
+  )
+}
